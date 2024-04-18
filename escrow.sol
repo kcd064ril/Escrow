@@ -25,10 +25,10 @@ contract Escrow {
 
 
     function deposit() external payable {
-        require(msg.sender == payer, "Only the payer can deposit funds");
+        require(msg.sender == payer, "Only the payer can deposit funds");  // use require function  
         require(!paid, "Funds have already been released");
         require(msg.value == amount, "Incorrect amount sent");
-        assert(address(this).balance >= amount);
+        assert(address(this).balance >= amount); // use of assert function  
     }
 
     function release() external {
@@ -48,6 +48,6 @@ contract Escrow {
     }
 
     fallback() external {
-        revert("Fallback function not allowed");
+        revert("Fallback function not allowed"); // using of revert function
     }
 }
